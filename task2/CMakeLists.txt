@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.11)
+project(main_game)
+set(SRC ${CMAKE_SOURCE_DIR}/src/main.cpp)
+include_directories(${CMAKE_SOURCE_DIR}/game/include)
+add_executable(main_game ${SRC})
+add_subdirectory(game)
+target_link_libraries(main_game game)
