@@ -3,6 +3,7 @@
 
 #include "consolegame.h"
 #include "consoleplayer.h"
+#include "playermanager.h"
 
 ConsoleGame::ConsoleGame(const std::string& name, IBoard* board) : m_name(name)
 {
@@ -20,13 +21,7 @@ bool ConsoleGame::waitForPlayer(uint64_t timeout)
 {
     while (m_players.size() < 2)
     {
-        std::cout << "Enter name of players " << std::to_string(m_players.size() + 1) << std::endl;
-        std::string name;
-        std::cin >> name;
-        if (name.empty())
-            continue;
-        
-        m_players.emplace_back(new ConsolePlayer(name));
+        m_players.emplace_back(PlayerManager::selectPlayer());
     }
     return true;    
 }
