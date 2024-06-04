@@ -35,6 +35,7 @@ int main()
             std::cout << "game created" << std::endl;
             if (game->waitForPlayer(30000))
                 game->exec();
+            game = nullptr;
         }
         else
         {

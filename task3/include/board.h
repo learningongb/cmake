@@ -23,5 +23,6 @@ public:
     virtual ~IBoard() = default;
     virtual std::pair<PositionType, PositionType> dimention() const { return std::pair<PositionType, PositionType>{};}
     virtual Mark mark(const PositionType& pos) const {return MARK_UNKNOWN;}
-    virtual bool setMark(const PositionType& pos, const Mark& mark) {return false;} 
+    virtual bool setMark(const PositionType& pos, const Mark& mark) {return false;}
+    virtual bool hasEmptyPlace() {return true;} 
 };
